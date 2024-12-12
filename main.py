@@ -12,7 +12,7 @@ class MainWindow(QMainWindow):
 
         self.circles = []
 
-        self.ui.pushButton.clicked.connect(self.add_circle)
+        self.pushButton.clicked.connect(self.add_circle)
 
     def add_circle(self):
         diameter = random.randint(20, 100)
@@ -27,7 +27,10 @@ class MainWindow(QMainWindow):
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         for (x, y, diameter) in self.circles:
-            painter.setBrush(QColor('#FFFF00'))
+            r = random.randint(0, 255)
+            g = random.randint(0, 255)
+            b = random.randint(0, 255)
+            painter.setBrush(QColor(r, g, b))
             painter.drawEllipse(x, y, diameter, diameter)
 
 
